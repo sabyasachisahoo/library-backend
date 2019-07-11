@@ -49,7 +49,7 @@ exports.addBook = (req,res) => {
 exports.updateBook = (req,res) =>{
     Book.findByIdAndUpdate(req.params.id,req.body, {new: true})
     .then(()=>{
-        res.send("Book updated successfully")
+        res.send({success:"Book updated successfully"})
     }).catch((error)=>{
         console,log(error)
     })
@@ -58,7 +58,7 @@ exports.updateBook = (req,res) =>{
 exports.deleteBook =(req,res) =>{
     Book.findByIdAndRemove(req.params.id)
         .then(()=>{
-            res.send("Book deleted") 
+            res.send({success:"Book deleted"}) 
         }).catch((error)=>{
             console.log(error);
         })
